@@ -3,7 +3,27 @@ guid: 82fa083095206cc44a09833f6a989a5b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: fb50569971aa0fb4a983abcdfa700a47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Janela
+    second: {fileID: 2100000, guid: 872b360861286ef429b414d5237fa8bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metalic
+    second: {fileID: 2100000, guid: 6797ea47d74f56c4f98be76ce9a5154a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metalic 2
+    second: {fileID: 2100000, guid: 50bf01d757ba684459bdd08c12084c7f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
