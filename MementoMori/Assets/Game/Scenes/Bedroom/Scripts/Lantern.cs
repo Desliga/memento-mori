@@ -11,6 +11,11 @@ public class Lantern : MonoBehaviour
 
     private GameObject focusedItem;
     private bool isFocusing;
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(lanternLight.transform.position, lanternLight.transform.forward * lanternLight.range);
+    }
 
     private void Update()
     {
@@ -19,7 +24,9 @@ public class Lantern : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, lanternLight.range, itemLayer))
         {
-            // Detecta o item na layer correta
+
+            Debug.Log("ok");
+   
             if (hit.collider.gameObject != focusedItem)
             {
                 ResetFocus();
@@ -32,6 +39,7 @@ public class Lantern : MonoBehaviour
             {
                 focusProgress += Time.deltaTime;
                 lanternLight.spotAngle = Mathf.Lerp(80, 30, focusProgress / focusTime);
+                Debug.Log("To aqui");
 
                 if (focusProgress >= focusTime)
                 {
