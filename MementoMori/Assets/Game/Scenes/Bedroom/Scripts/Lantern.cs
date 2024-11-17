@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game.Scenes.Bedroom.Scripts;
 using UnityEngine;
 
 public class Lantern : MonoBehaviour
 {
+    public BedroomStageController bedroomStageController;
+        
     public LayerMask itemLayer;       // Layer dos itens a serem coletados
     public Light lanternLight;        // Luz da lanterna
-    public float focusTime = 3f;      // Tempo necessário para coletar o item
+    public float focusTime = 3f;      // Tempo necessï¿½rio para coletar o item
     private float focusProgress = 0f; // Progresso do foco
 
     private GameObject focusedItem;
@@ -34,13 +37,15 @@ public class Lantern : MonoBehaviour
                 isFocusing = true;
             }
 
-            // Aumenta o foco da luz e coleta o item após um tempo
+            // Aumenta o foco da luz e coleta o item apï¿½s um tempo
             if (isFocusing)
             {
                 focusProgress += Time.deltaTime;
-                lanternLight.spotAngle = Mathf.Lerp(80, 30, focusProgress / focusTime);
+                //lanternLight.spotAngle = Mathf.Lerp(80, 30, focusProgress / focusTime);
                 Debug.Log("To aqui");
 
+                hit.collider.gameObject.GetComponent<CollectibleItem>().SetRange(focusProgress/focusTime);
+                
                 if (focusProgress >= focusTime)
                 {
                     CollectItem(focusedItem);
@@ -59,12 +64,14 @@ public class Lantern : MonoBehaviour
         isFocusing = false;
         focusProgress = 0f;
         focusedItem = null;
-        lanternLight.spotAngle = 80; // Ângulo padrão da luz
+        lanternLight.spotAngle = 80; // ï¿½ngulo padrï¿½o da luz
     }
 
     private void CollectItem(GameObject item)
     {
         Inventory.Instance.AddItem(item.GetComponent<CollectibleItem>().itemData);
         Destroy(item); // Remove o item da cena
+        
+        bedroomStageController.NextStage();
     }
 }

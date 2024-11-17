@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class CollectibleItem : MonoBehaviour
 {
-    public ItemData itemData; // Dados do item coletável
+    public MeshRenderer meshRenderer;
+    
+    public ItemData itemData; // Dados do item coletï¿½vel
 
     private void Start()
     {
-        // Verifica se o itemData está configurado
+        // Verifica se o itemData estï¿½ configurado
         if (itemData == null)
         {
-            Debug.LogWarning("ItemData não atribuído no item " + gameObject.name);
+            Debug.LogWarning("ItemData nï¿½o atribuï¿½do no item " + gameObject.name);
         }
+    }
+
+    public void SetRange(float range)
+    {
+        meshRenderer.materials[1].SetFloat("_Range", range * 0.8f + 0.6f);
     }
 }

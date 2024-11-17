@@ -18,6 +18,8 @@ namespace Game.Scenes.Bedroom.Scripts
                 Instance = this;
             else
                 Destroy(gameObject);
+
+            DontDestroyOnLoad(gameObject);
         }
 
         public void FadeIn(float seconds)

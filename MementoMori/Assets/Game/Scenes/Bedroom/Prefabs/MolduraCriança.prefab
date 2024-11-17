@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6194474962852723196, guid: 1168d97c361b0c4479d77d2bdbb55dc1, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6194474962852723196, guid: 1168d97c361b0c4479d77d2bdbb55dc1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d5bee3e331bd8e4a9315ec3afe80fd2, type: 2}
     - target: {fileID: -2184035545787667989, guid: 1168d97c361b0c4479d77d2bdbb55dc1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -125,4 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7812eb64dc9ca4f86fef500edbfeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 7079108271988636408}
   itemData: {fileID: 11400000, guid: 95262351ec689b746a6922581247863c, type: 2}
+--- !u!23 &7079108271988636408 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6194474962852723196, guid: 1168d97c361b0c4479d77d2bdbb55dc1, type: 3}
+  m_PrefabInstance: {fileID: 5203564810967825660}
+  m_PrefabAsset: {fileID: 0}
