@@ -41,7 +41,7 @@ public class Lantern : MonoBehaviour
             if (isFocusing)
             {
                 focusProgress += Time.deltaTime;
-                //lanternLight.spotAngle = Mathf.Lerp(80, 30, focusProgress / focusTime);
+                lanternLight.spotAngle = Mathf.Lerp(80, 30, focusProgress / focusTime);
                 Debug.Log("To aqui");
 
                 hit.collider.gameObject.GetComponent<CollectibleItem>().SetRange(focusProgress/focusTime);
