@@ -6,7 +6,8 @@ using UnityEngine;
 public class Lantern : MonoBehaviour
 {
     public BedroomStageController bedroomStageController;
-        
+    
+    public LayerMask interactableLayer;
     public LayerMask itemLayer;       // Layer dos itens a serem coletados
     public Light lanternLight;        // Luz da lanterna
     public float focusTime = 3f;      // Tempo necess�rio para coletar o item
@@ -23,9 +24,8 @@ public class Lantern : MonoBehaviour
     private void Update()
     {
         Ray ray = new Ray(lanternLight.transform.position, lanternLight.transform.forward);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, lanternLight.range, itemLayer))
+        if (Physics.Raycast(ray, out var hit, lanternLight.range, itemLayer))
         {
 
             Debug.Log("ok");
@@ -56,6 +56,15 @@ public class Lantern : MonoBehaviour
         else
         {
             ResetFocus();
+        }
+
+
+        if (Physics.Raycast(ray, out var hit2, lanternLight.range, interactableLayer))
+        {
+            if (hit2.collider.gameObject.TryGetComponent<ILanternInteractable>(out var component))
+            {
+                component.Interact();
+            }
         }
     }
 
