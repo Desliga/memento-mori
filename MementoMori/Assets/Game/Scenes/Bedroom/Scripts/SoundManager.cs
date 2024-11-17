@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class SoundManager : MonoBehaviour
     [Header("References")] 
     [SerializeField] private AudioSource girlLaugh;
     [SerializeField] private AudioSource lightSpark;
+    [SerializeField] private AudioSource DoorOpen;
+    [SerializeField] private AudioSource DoorClose;
     
    private void Awake()
            {
@@ -16,6 +19,8 @@ public class SoundManager : MonoBehaviour
                    Instance = this;
                else
                    Destroy(gameObject);
+               
+               DontDestroyOnLoad(gameObject);
            }
 
    public void PlayGirlLaugh()
@@ -28,4 +33,14 @@ public class SoundManager : MonoBehaviour
        lightSpark.Play();
    }
 
+   public void PlayDoorOpen()
+   {
+       DoorOpen.Play();
+   }
+   
+   public void PlayDoorClose()
+   {
+       DoorClose.Play();
+   }
+   
 }

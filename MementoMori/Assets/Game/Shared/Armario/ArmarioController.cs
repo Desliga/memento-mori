@@ -32,6 +32,7 @@ namespace Game.Shared.Armario
         {
             _animator.SetBool(Open, true);
             _open = true;
+            SoundManager.Instance.PlayDoorOpen();
         }
 
         public void Interact()
@@ -40,7 +41,7 @@ namespace Game.Shared.Armario
             
             _animator.SetBool(Open, false);
             _open = false;
-            
+            SoundManager.Instance.PlayDoorClose();
             RandomOpen();
         }
     }
