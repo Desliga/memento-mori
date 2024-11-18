@@ -15,40 +15,46 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource jumpScare;
     [SerializeField] private AudioSource chuva;
     [SerializeField] private AudioSource trovao;
+    [SerializeField] private AudioSource songbox;
 
     private void Awake()
-   {
+    {
         if (Instance == null)
             Instance = this;
         else
             Destroy(gameObject);
                
         DontDestroyOnLoad(gameObject);
-   }
+    }
 
-   public void PlayGirlLaugh()
-   {
-       girlLaugh.Play();
-   }
+    public void PlayGirlLaugh()
+    {
+        girlLaugh.Play();
+    }
    
-   public void PlayLightSpark()
-   {
-       lightSpark.Play();
-   }
+    public void PlayLightSpark()
+    {
+        lightSpark.Play();
+    }
 
-   public void PlayDoorOpen()
-   {
-       doorOpen.Play();
-   }
+    public void PlayDoorOpen()
+    {
+        doorOpen.Play();
+    }
    
-   public void PlayDoorClose()
-   {
-       doorClose.Play();
-   }
+    public void PlayDoorClose()
+    {
+        doorClose.Play();
+    }
 
-   public void PlayScare()
-   {
-       jumpScare.Play();
-   }
+    public void PlayScare()
+    {
+        jumpScare.Play();
+    }
+
+    public void PlayKillerSong()
+    {
+        songbox.Play();
+    }
    
 }

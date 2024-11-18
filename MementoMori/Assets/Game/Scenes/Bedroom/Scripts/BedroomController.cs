@@ -27,6 +27,8 @@ namespace Game.Scenes.Bedroom.Scripts
             yield return new WaitForSeconds(1.0f);
             playerTransform.position = targetPosition.position;
             FadeManager.Instance.FadeIn(1.0f);
+            yield return new WaitForSeconds(1.0f);
+            GameManager.Instance.StartLevelSong();
         }
 
         private void BlinkLight(int times, float endValue, float seconds)

@@ -45,4 +45,9 @@ public class GameManager : MonoBehaviour
         LoadScene("GameOver");
         HudManager.Instance.SetGameOverPanel(true);
     }
+
+    public void StartLevelSong()
+    {
+        FindObjectOfType<SongboxController>().OpenSongbox();
+    }
 }
