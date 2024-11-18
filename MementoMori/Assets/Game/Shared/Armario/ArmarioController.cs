@@ -33,6 +33,7 @@ namespace Game.Shared.Armario
             _animator.SetBool(Open, true);
             _open = true;
             SoundManager.Instance.PlayDoorOpen();
+            Invoke("KillPlayer", 5f);
         }
 
         public void Interact()
@@ -42,7 +43,13 @@ namespace Game.Shared.Armario
             _animator.SetBool(Open, false);
             _open = false;
             SoundManager.Instance.PlayDoorClose();
+            CancelInvoke("KillPlayer");
             RandomOpen();
+        }
+
+        private void KillPlayer()
+        {
+            GameManager.Instance.GameOver();
         }
     }
 }

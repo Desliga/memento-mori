@@ -14,14 +14,14 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource DoorClose;
     
    private void Awake()
-           {
-               if (Instance == null)
-                   Instance = this;
-               else
-                   Destroy(gameObject);
+   {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
                
-               DontDestroyOnLoad(gameObject);
-           }
+        DontDestroyOnLoad(gameObject);
+   }
 
    public void PlayGirlLaugh()
    {

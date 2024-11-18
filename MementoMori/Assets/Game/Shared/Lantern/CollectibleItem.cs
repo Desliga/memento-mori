@@ -4,14 +4,14 @@ public class CollectibleItem : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
     
-    public ItemData itemData; // Dados do item colet�vel
+    public ItemData itemData; // Dados do item coletavel
 
     private void Start()
     {
         // Verifica se o itemData est� configurado
         if (itemData == null)
         {
-            Debug.LogWarning("ItemData n�o atribu�do no item " + gameObject.name);
+            Debug.LogWarning("ItemData nao atribuido no item " + gameObject.name);
         }
     }
 
