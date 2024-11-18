@@ -70,6 +70,11 @@ public class Lantern : MonoBehaviour
 
     private void ResetFocus()
     {
+        if (focusedItem != null)
+        {
+            focusedItem.GetComponent<CollectibleItem>().SetRange(0);
+        }
+
         isFocusing = false;
         focusProgress = 0f;
         focusedItem = null;
