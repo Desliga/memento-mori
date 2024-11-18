@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Game.Scenes.Bedroom.Scripts
 {
@@ -27,7 +26,7 @@ namespace Game.Scenes.Bedroom.Scripts
             yield return new WaitForSeconds(1.0f);
             SoundManager.Instance.PlayGirlLaugh();
             yield return new WaitForSeconds(1.0f);
-            SceneManager.LoadSceneAsync(nextStage);
+            GameManager.Instance.LoadScene(nextStage);
         }
     }
 }

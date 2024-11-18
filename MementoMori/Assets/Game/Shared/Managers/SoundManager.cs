@@ -10,8 +10,9 @@ public class SoundManager : MonoBehaviour
     [Header("References")] 
     [SerializeField] private AudioSource girlLaugh;
     [SerializeField] private AudioSource lightSpark;
-    [SerializeField] private AudioSource DoorOpen;
-    [SerializeField] private AudioSource DoorClose;
+    [SerializeField] private AudioSource doorOpen;
+    [SerializeField] private AudioSource doorClose;
+    [SerializeField] private AudioSource jumpScare;
     
    private void Awake()
    {
@@ -35,12 +36,17 @@ public class SoundManager : MonoBehaviour
 
    public void PlayDoorOpen()
    {
-       DoorOpen.Play();
+       doorOpen.Play();
    }
    
    public void PlayDoorClose()
    {
-       DoorClose.Play();
+       doorClose.Play();
+   }
+
+   public void PlayScare()
+   {
+       jumpScare.Play();
    }
    
 }
