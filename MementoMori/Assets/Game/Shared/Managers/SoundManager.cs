@@ -13,8 +13,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource doorOpen;
     [SerializeField] private AudioSource doorClose;
     [SerializeField] private AudioSource jumpScare;
-    
-   private void Awake()
+    [SerializeField] private AudioSource chuva;
+    [SerializeField] private AudioSource trovao;
+
+    private void Awake()
    {
         if (Instance == null)
             Instance = this;
