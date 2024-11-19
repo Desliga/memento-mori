@@ -64,8 +64,8 @@ MonoBehaviour:
   chuva: {fileID: 4101597882830769904}
   trovao: {fileID: 2769989219250815900}
   songbox: {fileID: 5736498271780519750}
-  fallpaper: {fileID: 0}
-  fallobj: {fileID: 0}
+  fallpaper: {fileID: 6629373487231220883}
+  fallobj: {fileID: 4650936942816981118}
 --- !u!114 &133063480280510171
 MonoBehaviour:
   m_ObjectHideFlags: 0
