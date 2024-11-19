@@ -25,5 +25,6 @@ public class BedroomRandomAnim : MonoBehaviour
     private void FallSet()
     {
         armario.SetTrigger("Fall");
+        SoundManager.Instance.PlayFall();
     }
 }

@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource chuva;
     [SerializeField] private AudioSource trovao;
     [SerializeField] private AudioSource songbox;
+    [SerializeField] private AudioSource fallpaper;
+    [SerializeField] private AudioSource fallobj;
 
     private void Awake()
     {
@@ -55,6 +57,11 @@ public class SoundManager : MonoBehaviour
     public void PlayKillerSong()
     {
         songbox.Play();
+    }
+    public void PlayFall()
+    {
+        fallpaper.Play();
+        fallobj.Play();
     }
    
 }
