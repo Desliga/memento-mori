@@ -3148,10 +3148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf83792bdcaa4a242980d39cfc6d19f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1825423155}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf83792bdcaa4a242980d39cfc6d19f7, type: 3}
       insertIndex: -1
@@ -6321,7 +6318,7 @@ Transform:
   m_GameObject: {fileID: 1801608248}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.166, y: -0.324, z: 0.030000001}
+  m_LocalPosition: {x: 1.558, y: -0.324, z: -0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6379,12 +6376,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825423154}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.029, y: -0, z: 1.967}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -4.6127133, y: 2.413233, z: 0.36512446}
+  m_LocalScale: {x: 1.2268596, y: 1.2268596, z: 1.2268596}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 837482829}
+  m_Father: {fileID: 1998546940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1825423156
 MonoBehaviour:
@@ -7131,7 +7128,7 @@ Transform:
   m_GameObject: {fileID: 1938779004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.432, y: -0.32, z: 0.156}
+  m_LocalPosition: {x: 0.042, y: -0.32, z: 0.156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7261,6 +7258,7 @@ Transform:
   m_Children:
   - {fileID: 1318973461}
   - {fileID: 1938779005}
+  - {fileID: 1825423155}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1998546941
