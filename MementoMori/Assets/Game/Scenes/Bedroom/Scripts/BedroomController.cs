@@ -17,7 +17,7 @@ namespace Game.Scenes.Bedroom.Scripts
 
         private IEnumerator MoveSequence()
         {
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(8.0f);
             SoundManager.Instance.PlayLightSpark();
             BlinkLight(3, 0.0f, 0.1f);
             yield return new WaitForSeconds(1.6f);
