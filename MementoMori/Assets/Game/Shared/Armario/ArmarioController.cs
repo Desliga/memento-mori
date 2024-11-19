@@ -58,7 +58,7 @@ namespace Game.Shared.Armario
         }
         
 
-        private IEnumerator KillPlayer()
+        public IEnumerator KillPlayer()
         {
             yield return new WaitForSeconds(8.0f);
             canclose = false;
