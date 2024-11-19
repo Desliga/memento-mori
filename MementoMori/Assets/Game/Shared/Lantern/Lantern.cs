@@ -7,13 +7,16 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Lantern : MonoBehaviour
 {
     public BedroomStageController bedroomStageController;
 
-    public ArmarioController armario;
-    
+    public GameObject enemy;
+    public Animator enemyanim;
+    public Transform enemypoint;
+
     public VolumeProfile sceneVolume;
     public Vignette _vignette;
     
@@ -99,7 +102,7 @@ public class Lantern : MonoBehaviour
             {
                 enemyFocusProgress = 0f;
                 _vignette.intensity.value = 0f;
-                StartCoroutine(armario.KillPlayer());
+                StartCoroutine(KillPlayer());
                 Destroy(gameObject);
             }
         }
@@ -130,5 +133,15 @@ public class Lantern : MonoBehaviour
         Destroy(item); // Remove o item da cena
         
         bedroomStageController.NextStage();
+    }
+
+    public IEnumerator KillPlayer()
+    {
+        yield return new WaitForSeconds(1.5f);
+        enemy.transform.position = enemypoint.position;
+        enemyanim.SetTrigger("Jump");
+        SoundManager.Instance.PlayScare();
+        yield return new WaitForSeconds(1.0f);
+        GameManager.Instance.GameOver();
     }
 }

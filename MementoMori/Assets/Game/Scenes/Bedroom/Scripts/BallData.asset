@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40b915ff5f95c14dbc8ed72222065dc, type: 3}
   m_Name: BallData
   m_EditorClassIdentifier: 
-  itemName: "MolduraCrian\xE7a"
+  itemName: Bola
   icon: {fileID: 0}

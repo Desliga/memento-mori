@@ -7016,7 +7016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772b1f97d2e4cb74ca199667c83f504f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextStage: Bedroom2
+  nextStage: Bedroom3
   fadeInOnStart: 0
 --- !u!114 &1998546943
 MonoBehaviour:

@@ -64,6 +64,8 @@ MonoBehaviour:
   chuva: {fileID: 4101597882830769904}
   trovao: {fileID: 2769989219250815900}
   songbox: {fileID: 5736498271780519750}
+  fallpaper: {fileID: 0}
+  fallobj: {fileID: 0}
 --- !u!114 &133063480280510171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +511,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 45b2b327c4839ea48848bf7667c4af81, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1405,7 +1407,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6585d6a9477e8ff46b8e51b1c15ada09, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7351090743104910813}
   - component: {fileID: 2174591793574766273}
   - component: {fileID: 4562312854801718708}
+  - component: {fileID: 6991454814492660090}
   m_Layer: 3
   m_Name: BeachBall
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.8099668, y: -0.31989926, z: -0.0879405, w: 0.48361647}
   m_LocalPosition: {x: -0.14165723, y: 0.102, z: 1.301}
-  m_LocalScale: {x: 4.683392, y: 4.683392, z: 4.683392}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4395501736672986524}
   m_Father: {fileID: 0}
@@ -102,6 +103,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 7300127447610431340}
   itemData: {fileID: 11400000, guid: be487bac77c787846950d1b00a7aa4f8, type: 2}
+--- !u!135 &6991454814492660090
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878925146636904745}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.0100000035
+  m_Center: {x: -0.00000000325963, y: 0.0000000027939693, z: -1.179612e-16}
 --- !u!1 &8891300923883550806
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +136,7 @@ GameObject:
   - component: {fileID: 5928882386306576840}
   - component: {fileID: 7300127447610431340}
   - component: {fileID: 1096568380451547902}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,6 +186,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 8d5bee3e331bd8e4a9315ec3afe80fd2, type: 2}
   - {fileID: 2100000, guid: 8d5bee3e331bd8e4a9315ec3afe80fd2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

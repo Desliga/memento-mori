@@ -406,7 +406,7 @@ Transform:
   m_GameObject: {fileID: 92583443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.12936354, z: -0, w: 0.99159724}
-  m_LocalPosition: {x: 0.037, y: 0.073, z: -3.489}
+  m_LocalPosition: {x: -0.061, y: 0.115, z: -3.307}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1123,7 +1123,7 @@ Transform:
   m_GameObject: {fileID: 295268398}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.97704136, z: -0, w: 0.2130498}
-  m_LocalPosition: {x: -2.355, y: 0.072, z: 0.443}
+  m_LocalPosition: {x: -2.418, y: 0.951, z: -3.904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2668,7 +2668,7 @@ Transform:
   m_GameObject: {fileID: 682805908}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.82394004, z: -0, w: 0.566677}
-  m_LocalPosition: {x: 0.478, y: -0.105, z: 0.653}
+  m_LocalPosition: {x: -0.212, y: 0.083, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3471,7 +3471,7 @@ PrefabInstance:
     - target: {fileID: 6983583175437356668, guid: 9c2e77cb489be444481f3482222882c7, type: 3}
       propertyPath: enemypoint
       value: 
-      objectReference: {fileID: 1833861776}
+      objectReference: {fileID: 1801608249}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3720,19 +3720,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4153173015106888, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.64236504
+      value: 0.6783852
       objectReference: {fileID: 0}
     - target: {fileID: 4153173015106888, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.289398
+      value: 0.19858345
       objectReference: {fileID: 0}
     - target: {fileID: 4153173015106888, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.30624056
+      value: -0.21496534
       objectReference: {fileID: 0}
     - target: {fileID: 4153173015106888, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.6401818
+      value: -0.6739051
       objectReference: {fileID: 0}
     - target: {fileID: 4153173015106888, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3740,7 +3740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4153173015106888, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -49.83
+      value: -34.016
       objectReference: {fileID: 0}
     - target: {fileID: 4153173015106888, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3755,9 +3755,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 348015377}
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1833861773}
+    - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: armario
       value: 
       objectReference: {fileID: 942190330}
+    - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: enemyanim
+      value: 
+      objectReference: {fileID: 1833861775}
+    - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: enemypoint
+      value: 
+      objectReference: {fileID: 1801608249}
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: sceneVolume
       value: 
@@ -3893,7 +3905,7 @@ Transform:
   m_GameObject: {fileID: 1318973460}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.026, y: 0, z: 0.339}
+  m_LocalPosition: {x: -3.605, y: 0, z: 0.339}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6053,7 +6065,7 @@ Transform:
   m_GameObject: {fileID: 1801608248}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9430001, y: -0.324, z: 0.030000001}
+  m_LocalPosition: {x: 1.703, y: -0.324, z: 0.030000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6173,11 +6185,6 @@ GameObject:
 --- !u!95 &1833861775 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7900594224496271281, guid: 0c53f6084552caa4b96595c772e40420, type: 3}
-  m_PrefabInstance: {fileID: 5027740611629492784}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1833861776 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1114613712024401512, guid: 0c53f6084552caa4b96595c772e40420, type: 3}
   m_PrefabInstance: {fileID: 5027740611629492784}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1838455867
@@ -7131,7 +7138,7 @@ PrefabInstance:
     - target: {fileID: 4106493104782521128, guid: 8dbf4e88998f2fb4eb76dee7284dbfa5, type: 3}
       propertyPath: enemypoint
       value: 
-      objectReference: {fileID: 1833861776}
+      objectReference: {fileID: 1801608249}
     - target: {fileID: 4238076056008606907, guid: 8dbf4e88998f2fb4eb76dee7284dbfa5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.861
