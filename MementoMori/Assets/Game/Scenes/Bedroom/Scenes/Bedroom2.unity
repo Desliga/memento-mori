@@ -3725,6 +3725,46 @@ PrefabInstance:
       propertyPath: bedroomStageController
       value: 
       objectReference: {fileID: 1998546942}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.089
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6743899
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.582084
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.14109151
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4318214
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -114.912
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -132.126
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549133847055545747, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 83.103
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
