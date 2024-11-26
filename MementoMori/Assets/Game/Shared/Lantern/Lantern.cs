@@ -124,7 +124,7 @@ public class Lantern : MonoBehaviour
         isFocusing = false;
         focusProgress = 0f;
         focusedItem = null;
-        lanternLight.spotAngle = 80; // �ngulo padr�o da luz
+        lanternLight.spotAngle = 25; // �ngulo padr�o da luz
     }
 
     private void CollectItem(GameObject item)
