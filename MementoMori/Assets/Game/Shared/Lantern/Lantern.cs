@@ -63,12 +63,9 @@ public class Lantern : MonoBehaviour
             float angle = Vector3.Angle(direction, toTarget);
             angle -= 90f;
             if (angle < 0f) angle = -angle;
-
-            if (Vector3.Dot(direction, toTarget) <= 0)
-            {
-                if (angle <= coneAngle)
-                    collidersInCone.Add(collider);
-            }
+            
+            if (angle <= coneAngle)
+                collidersInCone.Add(collider);
         }
 
         foreach (Collider detected in collidersInCone)
