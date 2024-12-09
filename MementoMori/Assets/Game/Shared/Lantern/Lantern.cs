@@ -11,6 +11,9 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Lantern : MonoBehaviour
 {
+    public float coneRadius = 1000f; // Maximum radius of the cone
+    public float coneAngle = 5f; // Half-angle of the cone in degrees
+    
     public BedroomStageController bedroomStageController;
 
     public GameObject enemy;
@@ -44,31 +47,58 @@ public class Lantern : MonoBehaviour
     {
         Gizmos.DrawRay(lanternLight.transform.position, lanternLight.transform.forward * lanternLight.range);
     }
+    
+    void DetectInCone(LayerMask layer, Action<Collider> callback, Action onNotFind = null)
+    {
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.forward;
+
+        Collider[] colliders = Physics.OverlapSphere(origin, coneRadius, layer);
+        List<Collider> collidersInCone = new List<Collider>();
+
+        foreach (Collider collider in colliders)
+        {
+            Vector3 toTarget = (collider.transform.position - origin).normalized;
+
+            float angle = Vector3.Angle(direction, toTarget);
+            angle -= 90f;
+            if (angle < 0f) angle = -angle;
+
+            if (Vector3.Dot(direction, toTarget) <= 0)
+            {
+                if (angle <= coneAngle)
+                    collidersInCone.Add(collider);
+            }
+        }
+
+        foreach (Collider detected in collidersInCone)
+        {
+            callback(detected);
+        }
+
+        if (collidersInCone.Count == 0)
+            onNotFind?.Invoke();
+    }
 
     private void Update()
     {
         Ray ray = new Ray(lanternLight.transform.position, lanternLight.transform.forward);
-
-        if (Physics.Raycast(ray, out var hit, lanternLight.range, itemLayer))
-        {
-
-            Debug.Log("ok");
-   
-            if (hit.collider.gameObject != focusedItem)
+        
+        DetectInCone(itemLayer, (collider) => {
+            if (collider.gameObject != focusedItem)
             {
                 ResetFocus();
-                focusedItem = hit.collider.gameObject;
+                focusedItem = collider.gameObject;
                 isFocusing = true;
             }
 
-            // Aumenta o foco da luz e coleta o item ap�s um tempo
             if (isFocusing)
             {
                 focusProgress += Time.deltaTime;
                 lanternLight.spotAngle = Mathf.Lerp(80, 30, focusProgress / focusTime);
                 Debug.Log("To aqui");
 
-                hit.collider.gameObject.GetComponent<CollectibleItem>().SetRange(focusProgress/focusTime);
+                collider.gameObject.GetComponent<CollectibleItem>().SetRange(focusProgress/focusTime);
                 
                 if (focusProgress >= focusTime)
                 {
@@ -76,28 +106,23 @@ public class Lantern : MonoBehaviour
                     ResetFocus();
                 }
             }
-        }
-        else
-        {
+        }, () => {
             ResetFocus();
-        }
-
-
-        if (Physics.Raycast(ray, out var hit2, lanternLight.range, interactableLayer))
-        {
-            if (hit2.collider.gameObject.TryGetComponent<ILanternInteractable>(out var component))
+        });
+        
+        DetectInCone(itemLayer, (collider) => {
+            if (collider.gameObject.TryGetComponent<ILanternInteractable>(out var component))
             {
                 component.Interact();
             }
-        }
+        });
         
         
-        if (Physics.Raycast(ray, out var hit3, lanternLight.range, enemyLayer))
-        {
+        DetectInCone(enemyLayer, (collider) => {
             enemyFocusProgress += Time.deltaTime;
-
+        
             _vignette.intensity.value = enemyFocusProgress / enemyFocusTime;
-            
+        
             if (enemyFocusProgress >= enemyFocusTime)
             {
                 enemyFocusProgress = 0f;
@@ -105,13 +130,11 @@ public class Lantern : MonoBehaviour
                 StartCoroutine(KillPlayer());
                 Destroy(gameObject);
             }
-        }
-        else
-        {
+        }, () => {
             enemyFocusProgress -= Time.deltaTime * 3f;
             if (enemyFocusProgress < 0f) enemyFocusProgress = 0f;
             _vignette.intensity.value = enemyFocusProgress / enemyFocusTime;
-        }
+        });
     }
 
     private void ResetFocus()
