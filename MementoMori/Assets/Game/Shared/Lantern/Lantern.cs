@@ -110,7 +110,7 @@ public class Lantern : MonoBehaviour
             ResetFocus();
         });
         
-        DetectInCone(itemLayer, (collider) => {
+        DetectInCone(interactableLayer, (collider) => {
             if (collider.gameObject.TryGetComponent<ILanternInteractable>(out var component))
             {
                 component.Interact();
