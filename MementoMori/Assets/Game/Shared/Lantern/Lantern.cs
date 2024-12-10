@@ -64,9 +64,11 @@ public class Lantern : MonoBehaviour
         {
             Vector3 toTarget = (collider.transform.position - origin).normalized;
 
+            Debug.DrawRay(origin, collider.transform.position, Color.green);
+            Debug.DrawRay(origin, direction, Color.red);
             float angle = Vector3.Angle(direction, toTarget);
-            angle -= 90f;
-            if (angle < 0f) angle = -angle;
+            //angle -= 90f;
+            //if (angle < 0f) angle = -angle;
 
             if (angle <= coneAngle)
                 collidersInCone.Add(collider);
@@ -116,7 +118,7 @@ public class Lantern : MonoBehaviour
         {
             ResetFocus();
         });
-
+        /*
         // Detectar objetos interagíveis
         DetectInCone(interactableLayer, (collider) =>
         {
@@ -152,7 +154,7 @@ public class Lantern : MonoBehaviour
         {
             controller.StartRoom();
             canmove = false;
-        }
+        }*/
     }
 
     private void ResetFocus()
