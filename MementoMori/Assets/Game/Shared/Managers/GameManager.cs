@@ -48,6 +48,6 @@ public class GameManager : MonoBehaviour
 
     public void StartLevelSong()
     {
-        //FindObjectOfType<SongboxController>().OpenSongbox();
+        FindObjectOfType<SongboxController>().OpenSongbox();
     }
 }

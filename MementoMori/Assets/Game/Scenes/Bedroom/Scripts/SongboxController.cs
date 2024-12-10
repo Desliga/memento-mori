@@ -9,6 +9,7 @@ public class SongboxController : MonoBehaviour, ILanternInteractable
     public GameObject enemy;
     public Animator enemyanim;
     public Transform enemypoint;
+    public Transform enemypoin2;
 
     private bool canClear = false;
     private Coroutine closeCoroutine;
@@ -39,7 +40,9 @@ public class SongboxController : MonoBehaviour, ILanternInteractable
     private IEnumerator KillPlayer()
     {
         yield return new WaitForSeconds(5.0f);
-        enemy.transform.position = enemypoint.position;
+        enemy.transform.parent = enemypoint;
+        enemy.transform.localPosition = Vector3.zero;
+        enemy.transform.localRotation = Quaternion.identity;
         enemyanim.SetTrigger("Jump");
         SoundManager.Instance.PlayScare();
         yield return new WaitForSeconds(2.0f);
@@ -56,6 +59,7 @@ public class SongboxController : MonoBehaviour, ILanternInteractable
             if (clearCount == 3)
             {
                 SoundManager.Instance.PlayBreak();
+                enemy.transform.position = enemypoin2.position;
                 SoundManager.Instance.Rewind();
                 StopCoroutine(closeCoroutine);
                 Invoke(nameof(Rewind), 0.8f);
