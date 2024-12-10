@@ -63,7 +63,7 @@ namespace Game.Shared.Armario
             yield return new WaitForSeconds(8.0f);
             canclose = false;
             enemy.transform.position = enemypoint.position;
-            enemyanim.SetTrigger("Jump");
+            //enemyanim.SetTrigger("Jump");
             SoundManager.Instance.PlayScare();
             yield return new WaitForSeconds(2.0f);
             GameManager.Instance.GameOver();

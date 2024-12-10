@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Scenes.Bedroom.Scripts;
 using Game.Shared.Armario;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -15,6 +16,7 @@ public class Lantern : MonoBehaviour
     public float coneAngle = 5f; // Half-angle of the cone in degrees
     
     public BedroomStageController bedroomStageController;
+    public BedroomController controller;
 
     public GameObject enemy;
     public Animator enemyanim;
@@ -35,13 +37,25 @@ public class Lantern : MonoBehaviour
     private GameObject focusedItem;
     private bool isFocusing;
 
+    public Vector3 initposition;
+    public bool canmove;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
+        canmove = true;
+        initposition = transform.position;
         if (sceneVolume.TryGet<Vignette>(out var vig))
         {
             _vignette = vig;
         }
     }
+    
+  
 
     private void OnDrawGizmos()
     {
@@ -132,6 +146,12 @@ public class Lantern : MonoBehaviour
             if (enemyFocusProgress < 0f) enemyFocusProgress = 0f;
             _vignette.intensity.value = enemyFocusProgress / enemyFocusTime;
         });
+
+        if (initposition != transform.position && canmove)
+        {
+            controller.StartRoom();
+            canmove = false;
+        }
     }
 
     private void ResetFocus()
