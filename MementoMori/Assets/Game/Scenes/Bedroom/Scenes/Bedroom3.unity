@@ -4423,7 +4423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f0076dde6b583664983ef723cab697d3, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3765108852280629433, guid: f0076dde6b583664983ef723cab697d3, type: 3}
       propertyPath: m_Materials.Array.data[0]

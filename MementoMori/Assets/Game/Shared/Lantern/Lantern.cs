@@ -40,11 +40,6 @@ public class Lantern : MonoBehaviour
     public Vector3 initposition;
     public bool canmove;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     private void Start()
     {
         canmove = true;
