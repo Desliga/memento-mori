@@ -15,10 +15,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource jumpScare;
     [SerializeField] private AudioSource chuva;
     [SerializeField] private AudioSource trovao;
-    [SerializeField] private AudioSource songbox;
+    public AudioSource songbox;
     [SerializeField] private AudioSource fallpaper;
     [SerializeField] private AudioSource fallobj;
-
+    public AudioSource rewind;
+    public AudioSource breakDance;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -63,5 +65,14 @@ public class SoundManager : MonoBehaviour
         fallpaper.Play();
         fallobj.Play();
     }
-   
+
+    public void Rewind()
+    {
+        rewind.Play();
+    }
+
+    public void PlayBreak()
+    {
+        breakDance.Play();
+    }
 }

@@ -1370,7 +1370,8 @@ GameObject:
   - component: {fileID: 4238076056008606907}
   - component: {fileID: 2923630353336163749}
   - component: {fileID: 4106493104782521128}
-  m_Layer: 0
+  - component: {fileID: 2661764949615175026}
+  m_Layer: 7
   m_Name: Caixa_Bailarina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1432,6 +1433,27 @@ MonoBehaviour:
   enemy: {fileID: 0}
   enemyanim: {fileID: 0}
   enemypoint: {fileID: 0}
+--- !u!65 &2661764949615175026
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683606805189425355}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!1 &4765470502514200998
 GameObject:
   m_ObjectHideFlags: 0

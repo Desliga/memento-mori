@@ -12,6 +12,11 @@ namespace Game.Scenes.Bedroom.Scripts
 
         private void Start()
         {
+            
+        }
+
+        public void StartRoom()
+        {
             StartCoroutine(MoveSequence());
         }
 
