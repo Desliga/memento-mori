@@ -12884,17 +12884,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1833861773}
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
-      propertyPath: coneAngle
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: enemyanim
       value: 
       objectReference: {fileID: 2131168302}
-    - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
-      propertyPath: coneRadius
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: controller
       value: 
