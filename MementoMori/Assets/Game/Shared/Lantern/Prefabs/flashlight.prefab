@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6180866852706875965}
   m_Layer: 0
   m_Name: flashlight
-  m_TagString: Untagged
+  m_TagString: Lanterna
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -173,7 +173,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5129af9c32df74647bbbc74df5764b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coneRadius: 1000
+  coneAngle: 5
   bedroomStageController: {fileID: 0}
+  controller: {fileID: 0}
+  enemy: {fileID: 0}
+  enemyanim: {fileID: 0}
+  enemypoint: {fileID: 0}
+  sceneVolume: {fileID: 11400000, guid: d2c72cea57d949b4190401b954aa2646, type: 2}
+  _vignette: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   interactableLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -182,6 +193,9 @@ MonoBehaviour:
     m_Bits: 8
   lanternLight: {fileID: 7252372797811326293}
   focusTime: 3
+  enemyFocusTime: 5
+  initposition: {x: 0, y: 0, z: 0}
+  canmove: 0
 --- !u!114 &6180866852706875965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,13 +342,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3028879225748291445}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.8804329, y: -0.028015252, z: 0.052431807, w: 0.47042966}
-  m_LocalPosition: {x: -0, y: 0.231, z: 0}
+  m_LocalRotation: {x: -0.08071505, y: 0.89749223, z: 0.30442697, w: -0.30873454}
+  m_LocalPosition: {x: 0.049, y: 0.523, z: -0.013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4153173015106888}
-  m_LocalEulerAnglesHint: {x: -124.368, y: 12.136993, z: -10.065979}
+  m_LocalEulerAnglesHint: {x: -150.224, y: -315.966, z: -202.55}
 --- !u!1 &3670700650578659806
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,10 +477,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.89333194, b: 0.5424528, a: 1}
-  m_Intensity: 2
-  m_Range: 7
-  m_SpotAngle: 40
-  m_InnerSpotAngle: 20
+  m_Intensity: 2.06
+  m_Range: 12.3
+  m_SpotAngle: 25.04528
+  m_InnerSpotAngle: 14.32
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -475,7 +489,7 @@ Light:
     m_Strength: 0.772
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.66
+    m_NearPlane: 1.01
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -506,7 +520,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 6469
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
