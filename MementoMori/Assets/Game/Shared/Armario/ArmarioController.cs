@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,7 +16,9 @@ namespace Game.Shared.Armario
         private bool _open = false;
         private bool canclose;
 
-        private bool hasLantern = false; // Flag para verificar se o player pegou a lanterna
+        public Transform lantern; // Referência à lanterna
+        private Vector3 lastLanternPosition; // Última posição registrada da lanterna
+        private bool randomOpenTriggered = false; // Flag para evitar múltiplas chamadas
 
         private void Awake()
         {
@@ -24,8 +27,23 @@ namespace Game.Shared.Armario
 
         private void Start()
         {
-            if (hasLantern)
-                RandomOpen();
+            if (lantern != null)
+            {
+                lastLanternPosition = lantern.position; // Registra a posição inicial da lanterna
+            }
+        }
+
+        private void Update()
+        {
+            if (lantern != null && !randomOpenTriggered)
+            {
+                // Verifica se a posição da lanterna mudou
+                if (Vector3.Distance(lantern.position, lastLanternPosition) > 0.01f)
+                {
+                    randomOpenTriggered = true; // Garante que RandomOpen só será chamado uma vez
+                    RandomOpen();
+                }
+            }
         }
 
         private void RandomOpen()
@@ -36,8 +54,6 @@ namespace Game.Shared.Armario
 
         private void OpenDoor()
         {
-            if (!hasLantern) return; // Impede a abertura se o player não pegou a lanterna
-
             canclose = true;
             _animator.SetBool(Open, true);
             _open = true;
@@ -56,8 +72,7 @@ namespace Game.Shared.Armario
                 StopCoroutine(killplayer);
             }
 
-            if (hasLantern)
-                RandomOpen();
+            RandomOpen();
         }
 
         public IEnumerator KillPlayer()
@@ -68,17 +83,6 @@ namespace Game.Shared.Armario
             SoundManager.Instance.PlayScare();
             yield return new WaitForSeconds(2.0f);
             GameManager.Instance.GameOver();
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            // Verifica se o player pegou a lanterna pela tag
-            if (collision.gameObject.CompareTag("Lanterna"))
-            {
-                hasLantern = true; // Ativa a flag quando o player pega a lanterna
-                Debug.Log("Lanterna pegou: Armário pode abrir.");
-                RandomOpen(); // Começa o sistema de abertura
-            }
         }
     }
 }

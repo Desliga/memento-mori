@@ -3,18 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Scenes.Bedroom.Scripts;
 using Game.Shared.Armario;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class Lantern : MonoBehaviour
 {
     public float coneRadius = 1000f; // Maximum radius of the cone
     public float coneAngle = 5f; // Half-angle of the cone in degrees
-    
+
     public BedroomStageController bedroomStageController;
     public BedroomController controller;
 
@@ -24,13 +21,13 @@ public class Lantern : MonoBehaviour
 
     public VolumeProfile sceneVolume;
     public Vignette _vignette;
-    
+
     public LayerMask enemyLayer;
     public LayerMask interactableLayer;
     public LayerMask itemLayer;       // Layer dos itens a serem coletados
     public Light lanternLight;        // Luz da lanterna
-    public float focusTime = 3f;      // Tempo necess�rio para coletar o item
-    public float enemyFocusTime = 5f;      // Tempo necess�rio para coletar o item
+    public float focusTime = 3f;      // Tempo necessário para coletar o item
+    public float enemyFocusTime = 5f; // Tempo necessário para ataque do inimigo
     private float focusProgress = 0f; // Progresso do foco
     private float enemyFocusProgress = 0f; // Progresso do foco
 
@@ -49,14 +46,12 @@ public class Lantern : MonoBehaviour
             _vignette = vig;
         }
     }
-    
-  
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawRay(lanternLight.transform.position, lanternLight.transform.forward * lanternLight.range);
     }
-    
+
     void DetectInCone(LayerMask layer, Action<Collider> callback, Action onNotFind = null)
     {
         Vector3 origin = transform.position;
@@ -72,7 +67,7 @@ public class Lantern : MonoBehaviour
             float angle = Vector3.Angle(direction, toTarget);
             angle -= 90f;
             if (angle < 0f) angle = -angle;
-            
+
             if (angle <= coneAngle)
                 collidersInCone.Add(collider);
         }
@@ -88,47 +83,56 @@ public class Lantern : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = new Ray(lanternLight.transform.position, lanternLight.transform.forward);
-        
-        DetectInCone(itemLayer, (collider) => {
-            if (collider.gameObject != focusedItem)
+        // Detectar objetos na camada "Item"
+        DetectInCone(itemLayer, (collider) =>
+        {
+            if (collider.gameObject.layer == LayerMask.NameToLayer("Item")) // Garante que é da camada "Item"
             {
-                ResetFocus();
-                focusedItem = collider.gameObject;
-                isFocusing = true;
-            }
-
-            if (isFocusing)
-            {
-                focusProgress += Time.deltaTime;
-                lanternLight.spotAngle = Mathf.Lerp(80, 30, focusProgress / focusTime);
-                Debug.Log("To aqui");
-
-                collider.gameObject.GetComponent<CollectibleItem>().SetRange(focusProgress/focusTime);
-                
-                if (focusProgress >= focusTime)
+                if (collider.gameObject != focusedItem)
                 {
-                    CollectItem(focusedItem);
                     ResetFocus();
+                    focusedItem = collider.gameObject;
+                    isFocusing = true;
+                }
+
+                if (isFocusing)
+                {
+                    focusProgress += Time.deltaTime;
+                    lanternLight.spotAngle = Mathf.Lerp(80, 30, focusProgress / focusTime);
+
+                    if (collider.gameObject.TryGetComponent<CollectibleItem>(out var collectibleItem))
+                    {
+                        collectibleItem.SetRange(focusProgress / focusTime);
+                    }
+
+                    if (focusProgress >= focusTime)
+                    {
+                        CollectItem(focusedItem);
+                        ResetFocus();
+                    }
                 }
             }
-        }, () => {
+        }, () =>
+        {
             ResetFocus();
         });
-        
-        DetectInCone(interactableLayer, (collider) => {
+
+        // Detectar objetos interagíveis
+        DetectInCone(interactableLayer, (collider) =>
+        {
             if (collider.gameObject.TryGetComponent<ILanternInteractable>(out var component))
             {
                 component.Interact();
             }
         });
-        
-        
-        DetectInCone(enemyLayer, (collider) => {
+
+        // Detectar inimigos
+        DetectInCone(enemyLayer, (collider) =>
+        {
             enemyFocusProgress += Time.deltaTime;
-        
+
             _vignette.intensity.value = enemyFocusProgress / enemyFocusTime;
-        
+
             if (enemyFocusProgress >= enemyFocusTime)
             {
                 enemyFocusProgress = 0f;
@@ -136,12 +140,14 @@ public class Lantern : MonoBehaviour
                 StartCoroutine(KillPlayer());
                 Destroy(gameObject);
             }
-        }, () => {
+        }, () =>
+        {
             enemyFocusProgress -= Time.deltaTime * 3f;
             if (enemyFocusProgress < 0f) enemyFocusProgress = 0f;
             _vignette.intensity.value = enemyFocusProgress / enemyFocusTime;
         });
 
+        // Detectar movimento da lanterna
         if (initposition != transform.position && canmove)
         {
             controller.StartRoom();
@@ -153,20 +159,23 @@ public class Lantern : MonoBehaviour
     {
         if (focusedItem != null)
         {
-            focusedItem.GetComponent<CollectibleItem>().SetRange(0);
+            if (focusedItem.TryGetComponent<CollectibleItem>(out var collectibleItem))
+            {
+                collectibleItem.SetRange(0);
+            }
         }
 
         isFocusing = false;
         focusProgress = 0f;
         focusedItem = null;
-        lanternLight.spotAngle = 25; // �ngulo padr�o da luz
+        lanternLight.spotAngle = 25; // Ângulo padrão da luz
     }
 
     private void CollectItem(GameObject item)
     {
         Inventory.Instance.AddItem(item.GetComponent<CollectibleItem>().itemData);
         Destroy(item); // Remove o item da cena
-        
+
         bedroomStageController.NextStage();
     }
 

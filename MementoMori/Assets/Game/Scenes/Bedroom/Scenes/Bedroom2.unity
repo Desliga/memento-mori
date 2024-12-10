@@ -2066,11 +2066,6 @@ MonoBehaviour:
   m_Image: {fileID: 1347722675}
   m_CanvasGroup: {fileID: 0}
   m_IgnoreAlpha: 0
---- !u!4 &632186963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 465931154873746090, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-  m_PrefabInstance: {fileID: 1745912310}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &649692468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,11 +2536,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c2e77cb489be444481f3482222882c7, type: 3}
---- !u!95 &789862688 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9163486206031641294, guid: 9c2e77cb489be444481f3482222882c7, type: 3}
-  m_PrefabInstance: {fileID: 789862687}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &808897158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,6 +2653,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2000005, y: 1.2000002, z: 0.050000295}
   m_Center: {x: -0.00000023841858, y: -0.00000003576279, z: 0.025000017}
+--- !u!4 &861435567 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4153173015106888, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+  m_PrefabInstance: {fileID: 1120932960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &869715505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2763,8 +2758,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1833861773}
-  enemyanim: {fileID: 0}
-  enemypoint: {fileID: 632186963}
+  enemyanim: {fileID: 869715509}
+  enemypoint: {fileID: 869715512}
+  lantern: {fileID: 861435567}
 --- !u!95 &869715509
 Animator:
   serializedVersion: 5
@@ -2807,6 +2803,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!4 &869715512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 02be07ea4e5fa05428bda19ad4e64264, type: 3}
+  m_PrefabInstance: {fileID: 869715505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &994771056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,6 +3134,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 348015377}
+    - target: {fileID: 6180866852706875965, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: enemy
       value: 
@@ -3140,7 +3145,7 @@ PrefabInstance:
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: enemyanim
       value: 
-      objectReference: {fileID: 789862688}
+      objectReference: {fileID: 869715509}
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: controller
       value: 
@@ -3148,7 +3153,11 @@ PrefabInstance:
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: enemypoint
       value: 
-      objectReference: {fileID: 1801608249}
+      objectReference: {fileID: 869715512}
+    - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 640
+      objectReference: {fileID: 0}
     - target: {fileID: 7373110281104362344, guid: e3109ccf9db0f54408d5c02b496761c1, type: 3}
       propertyPath: bedroomStageController
       value: 
@@ -5309,6 +5318,10 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 465931154873746090, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.196
+      objectReference: {fileID: 0}
     - target: {fileID: 942810691211101373, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -5365,6 +5378,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 348015377}
+    - target: {fileID: 3510596729578377060, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.196
+      objectReference: {fileID: 0}
     - target: {fileID: 3540260771375364256, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionManager
       value: 
